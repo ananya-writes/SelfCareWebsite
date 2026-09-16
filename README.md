@@ -38,6 +38,12 @@ A recommendation component that suggests **books and journals** related to users
 * Provides recommendations based on areas of interest and personal development.
 * Helps users discover relevant self-help and wellness resources.
 
+## Website Preview
+
+<p align="center">
+  <img src="images/website-preview.png" alt="Self-Care Website Preview" width="900">
+</p>
+
 ## 🛠️ Technology Stack
 
 **Languages & Frameworks:** Python, Flask, HTML, CSS, JavaScript
