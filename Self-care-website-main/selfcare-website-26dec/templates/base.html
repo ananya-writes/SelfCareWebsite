@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Self Care</title>
+    <script>
+        var $SCRIPT_ROOT = "http://127.0.0.1:5000";
+    </script>
+</head>
+
+<body>
+
+
+     <div class="quote-container">
+        <p id="quote-text">Even when it’s hard to see, you are still glowing with potential.</p>
+        <button class="change-quote-button" onclick="changeQuote()">Change</button>
+      </div>
+
+      <div id="Mainline">
+        <span>Love</span>
+        <span>Yourself</span>
+        <span>A</span>
+        <span>little</span>
+        <span>more</span>
+    </div>
+
+
+        <div id="calendarDiv">
+
+            <div id="calendarHeading">
+
+                <p id="monthTitle">Month</p>
+                <p id="totalDays">0/31</p>
+
+            </div>
+
+            <div id="calendarContent">
+
+                <div id="tracker">
+                    <div class="days">
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                    </div>
+                    <div class="days">
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                    </div>
+                    <div class="days">
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                    </div>
+                    <div class="days">
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                    </div>
+                    <div class="days">
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                        <div class="day">1</div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <button id="resetButton">Set new Habit</button>
+        <div id="HabitList">
+            <div id="HabitListHeading">Currently Tracking</div> 
+            <div id="CurrentHabit">Meditation</div>
+            <div id="Content"></div>
+        </div>
+
+
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support chatbox--active">
+                <div class="chatbox__header">
+
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">Let's Chat - For a Happier, Healthier You</h4>
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Write a message...">
+                    <button class="chatbox__send--footer send__button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="brs">
+        <h1>Book Recommendations</h1>
+
+        <form action="/recommendation" method="post">
+
+            <div class="input-container">
+                <input name="user_input" type="text" placeholder="Enter book name">
+                <input type="submit" value="Submit">
+                <button id="bresetButton" type="button">Reset</button>  <!-- Button type changed to 'button' -->
+            </div>
+        
+            <div class="form-container">
+                <div class="results-container">
+                    {% if data %}
+                    <div class="book-grid">
+                        {% for i in data[:5] %}
+                        <div class="book-result">
+                            <p class="book-index">{{ loop.index }}.</p>
+                            <div>
+                                <p class="book-title">{{ i[0] }}</p>
+                                <h4 class="book-author">{{ i[1] }}</h4>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p class="error-message">{{ error }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        
+        </form>
+        
+
+
+    </div>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+
+</html>
